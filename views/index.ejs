@@ -1,0 +1,15 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="hero">
+  <img class="hero-logo" src="/images/logo.svg" alt="LiftLog team logo" width="120" height="120">
+  <h1>LiftLog</h1>
+  <p class="tagline">Track your workouts. See your progress.</p>
+  <a class="btn btn-hero" href="/workouts/new">Log a Workout</a>
+</section>
+
+<section>
+  <h2>Recent Workouts</h2>
+  <%- include('partials/workoutTable', { workouts: workouts }) %>
+</section>
+
+<%- include('partials/footer') %>

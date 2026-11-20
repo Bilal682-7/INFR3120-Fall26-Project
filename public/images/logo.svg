@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="LiftLog logo">
+  <!-- Original team logo: a dumbbell on a navy rounded square -->
+  <rect width="120" height="120" rx="26" fill="#1f3a5f"/>
+  <rect x="30" y="55" width="60" height="10" rx="3" fill="#f4f1ea"/>
+  <rect x="16" y="36" width="14" height="48" rx="4" fill="#f2a93b"/>
+  <rect x="30" y="44" width="8" height="32" rx="3" fill="#f2a93b"/>
+  <rect x="90" y="36" width="14" height="48" rx="4" fill="#f2a93b"/>
+  <rect x="82" y="44" width="8" height="32" rx="3" fill="#f2a93b"/>
+</svg>

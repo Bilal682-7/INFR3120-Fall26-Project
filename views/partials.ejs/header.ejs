@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The page title comes from the route that renders this page -->
+  <title><%= title %> | LiftLog</title>
+
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <!-- Site header: team logo, site name and navigation links, shown on every page -->
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/images/logo.svg" alt="LiftLog team logo" width="44" height="44">
+      <span>LiftLog</span>
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/workouts">All Workouts</a>
+      <a class="btn btn-small" href="/workouts/new">+ Log Workout</a>
+    </nav>
+  </header>
+
+  <!-- The main content of each page goes inside this element -->
+  <main class="container">
