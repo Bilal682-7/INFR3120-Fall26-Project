@@ -5,6 +5,7 @@ var Workout = require('../models/Workout');
 
 router.get('/', async function (req, res, next) {
   try {
+    // get the 20 newest workouts
     var workouts = await Workout.find().sort({ workoutDate: -1 }).limit(20);
     res.render('index', { title: 'LiftLog', workouts: workouts });
   } catch (err) {

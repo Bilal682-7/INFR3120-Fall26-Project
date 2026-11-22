@@ -32,7 +32,7 @@ public/: the CSS file and the logo.
 
 Logo
 
-I made the logo as a simple SVG: a gold dumbbell on a navy rounded square. It is saved in public/images/logo.svg. 
+I made a simple logo on canva by myself downlaoded it as a png and added it to my public/images
 
 Code Sources
 

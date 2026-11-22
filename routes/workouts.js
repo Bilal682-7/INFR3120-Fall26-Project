@@ -1,9 +1,9 @@
-// CRUD routes for workouts (mounted at /workouts in app.js)
+// CRUD routes for workouts
 var express = require('express');
 var router = express.Router();
 var Workout = require('../models/Workout');
 
-// READ: list all workouts, newest first
+// list all workouts, newest first
 router.get('/', async function (req, res, next) {
   try {
     var workouts = await Workout.find().sort({ workoutDate: -1 });
@@ -13,14 +13,15 @@ router.get('/', async function (req, res, next) {
   }
 });
 
-// CREATE: show the form (must be above /:id so "new" isn't read as an id)
+// show the form 
 router.get('/new', function (req, res) {
   res.render('workouts/new', { title: 'Log a Workout', error: null, workout: {} });
 });
 
-// CREATE: save the form data
+// save the form data
 router.post('/', async function (req, res, next) {
   try {
+    // saves the new workout in MongoDB using what the user typed in the form
     await Workout.create({
       exercise: req.body.exercise,
       category: req.body.category,
@@ -44,7 +45,7 @@ router.post('/', async function (req, res, next) {
   }
 });
 
-// UPDATE: show the edit form
+// show the edit form
 router.get('/:id/edit', async function (req, res, next) {
   try {
     var workout = await Workout.findById(req.params.id);
@@ -55,7 +56,7 @@ router.get('/:id/edit', async function (req, res, next) {
   }
 });
 
-// UPDATE: save changes (the form sends ?_method=PUT)
+// save changes 
 router.put('/:id', async function (req, res, next) {
   try {
     await Workout.findByIdAndUpdate(
@@ -88,6 +89,7 @@ router.put('/:id', async function (req, res, next) {
 // DELETE (the form sends ?_method=DELETE)
 router.delete('/:id', async function (req, res, next) {
   try {
+    // removes the workout with this id, then we go back to the home page
     await Workout.findByIdAndDelete(req.params.id);
     res.redirect('/');
   } catch (err) {
