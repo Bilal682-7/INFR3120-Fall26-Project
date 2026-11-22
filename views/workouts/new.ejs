@@ -1,0 +1,17 @@
+<!-- Create page: the form that adds a new workout -->
+<%- include('../partials/header', { title: title }) %>
+
+<h1>Log a Workout</h1>
+
+<!-- Shows the validation message if the route sent one back -->
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+
+<form method="POST" action="/workouts" class="form">
+  <%- include('../partials/workoutFields', { workout: workout }) %>
+  <div class="form-actions">
+    <button type="submit" class="btn">Save Workout</button>
+    <a class="btn btn-outline" href="/">Cancel</a>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>

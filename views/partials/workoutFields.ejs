@@ -1,0 +1,34 @@
+<!-- Form fields shared by the create and edit pages. "workout" holds existing values (empty on the create page). -->
+<label>Exercise
+  <input type="text" name="exercise" required value="<%= workout.exercise || '' %>" placeholder="e.g. Bench Press">
+</label>
+
+<label>Category
+  <select name="category" required>
+    <% ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms', 'Core', 'Cardio', 'Other'].forEach(function (c) { %>
+      <option value="<%= c %>" <%= workout.category === c ? 'selected' : '' %>><%= c %></option>
+    <% }); %>
+  </select>
+</label>
+
+<label>Sets
+  <input type="number" name="sets" min="1" required value="<%= workout.sets || '' %>">
+</label>
+
+<label>Reps
+  <input type="number" name="reps" min="1" required value="<%= workout.reps || '' %>">
+</label>
+
+<label>Weight (kg)
+  <input type="number" name="weight" min="0" step="0.5" value="<%= workout.weight || 0 %>">
+</label>
+
+<!-- A date input needs the format YYYY-MM-DD, so the stored date is cut down to that -->
+<label>Date
+  <input type="date" name="workoutDate" required
+         value="<%= workout.workoutDate ? new Date(workout.workoutDate).toISOString().slice(0, 10) : '' %>">
+</label>
+
+<label>Notes (optional)
+  <textarea name="notes" rows="3"><%= workout.notes || '' %></textarea>
+</label>
