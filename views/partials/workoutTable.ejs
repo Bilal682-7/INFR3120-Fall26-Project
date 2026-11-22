@@ -1,3 +1,4 @@
+<!-- Claude helped with forming initial table and delete form -->
 <!-- Table of workouts. Used on the home page and the All Workouts page. -->
 <% if (workouts.length === 0) { %>
   <!-- Shown when the database has no workouts yet -->
@@ -21,6 +22,7 @@
         <!-- forEach makes one table row for each workout in the list -->
         <% workouts.forEach(function (w) { %>
           <tr>
+            <!-- date is shown in UTC so it doesn't shift by a day -->
             <td><%= new Date(w.workoutDate).toLocaleDateString('en-CA', { timeZone: 'UTC' }) %></td>
             <td><%= w.exercise %></td>
             <td><%= w.category %></td>
@@ -32,7 +34,7 @@
               <!-- Edit opens the edit form for this workout -->
               <a class="btn btn-small btn-outline" href="/workouts/<%= w._id %>/edit">Edit</a>
 
-              <!-- Delete sends a DELETE request (method-override turns this POST into a DELETE) -->
+              <!-- Delete sends a DELETE request  -->
               <form method="POST" action="/workouts/<%= w._id %>?_method=DELETE"
                     onsubmit="return confirm('Delete this workout?');">
                 <button type="submit" class="btn btn-small btn-danger">Delete</button>
