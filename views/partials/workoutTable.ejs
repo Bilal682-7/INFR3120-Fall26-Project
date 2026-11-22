@@ -1,0 +1,46 @@
+<!-- Table of workouts. Used on the home page and the All Workouts page. -->
+<% if (workouts.length === 0) { %>
+  <!-- Shown when the database has no workouts yet -->
+  <p class="empty">No workouts yet. <a href="/workouts/new">Log your first one!</a></p>
+<% } else { %>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Exercise</th>
+          <th>Category</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight (kg)</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- forEach makes one table row for each workout in the list -->
+        <% workouts.forEach(function (w) { %>
+          <tr>
+            <td><%= new Date(w.workoutDate).toLocaleDateString('en-CA', { timeZone: 'UTC' }) %></td>
+            <td><%= w.exercise %></td>
+            <td><%= w.category %></td>
+            <td><%= w.sets %></td>
+            <td><%= w.reps %></td>
+            <td><%= w.weight %></td>
+            <td><%= w.notes %></td>
+            <td class="actions">
+              <!-- Edit opens the edit form for this workout -->
+              <a class="btn btn-small btn-outline" href="/workouts/<%= w._id %>/edit">Edit</a>
+
+              <!-- Delete sends a DELETE request (method-override turns this POST into a DELETE) -->
+              <form method="POST" action="/workouts/<%= w._id %>?_method=DELETE"
+                    onsubmit="return confirm('Delete this workout?');">
+                <button type="submit" class="btn btn-small btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+<% } %>
