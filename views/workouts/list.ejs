@@ -1,0 +1,8 @@
+<!-- All Workouts page: every saved workout, newest first -->
+<%- include('../partials/header', { title: title }) %>
+
+<h1>All Workouts</h1>
+<p><a class="btn" href="/workouts/new">+ Log Workout</a></p>
+<%- include('../partials/workoutTable', { workouts: workouts }) %>
+
+<%- include('../partials/footer') %>

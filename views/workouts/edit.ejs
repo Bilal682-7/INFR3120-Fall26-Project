@@ -1,0 +1,16 @@
+<!-- Edit page: the same form, filled in with the saved workout -->
+<%- include('../partials/header', { title: title }) %>
+
+<h1>Edit Workout</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+
+<!-- ?_method=PUT lets method-override turn this POST into a PUT request -->
+<form method="POST" action="/workouts/<%= workout._id %>?_method=PUT" class="form">
+  <%- include('../partials/workoutFields', { workout: workout }) %>
+  <div class="form-actions">
+    <button type="submit" class="btn">Save Changes</button>
+    <a class="btn btn-outline" href="/">Cancel</a>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>
